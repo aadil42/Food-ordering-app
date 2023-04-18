@@ -1,0 +1,56 @@
+# .gitignore for a React app
+
+# Dependency directories
+/node_modules
+
+# Build output
+/build
+/dist
+
+# Log files
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# Compiled output
+*.js
+*.map
+
+# Cache and temporary files
+*.swp
+*.swo
+*.tmp
+
+# IDE specific files and directories
+.vscode/
+.idea/
+*.iml
+
+# Compiled Webpack bundle analysis
+bundle-visualizer-report.html
+
+# Yarn PnP file
+.pnp.*
+
+# Jest coverage output
+/coverage
+
+# Compiled test files
+/tests/*.js
+
+# Mac OS specific files
+.DS_Store
+
+# Editor specific files
+*.sublime*
+*.idea*
+*.vscode*
+*.swp
+
+# Windows specific files
+Thumbs.db
+Desktop.ini
