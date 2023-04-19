@@ -4,6 +4,7 @@ import React from 'react';
 import Header from './Components/Layout/Header';
 import MealSummary from './Components/Layout/MealSummary';
 import MealList from './Components/Meals/MealList';
+import Cart from './Components/Cart/Cart';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <MealSummary  />
       <MealList />
+      <Cart />
     </React.Fragment>
   );
 }
