@@ -12,7 +12,7 @@ function App() {
       <Header />
       <MealSummary  />
       <MealList />
-      <Cart />
+      {/* <Cart /> */}
     </React.Fragment>
   );
 }
