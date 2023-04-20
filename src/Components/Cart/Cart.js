@@ -5,13 +5,22 @@ import classes from './Cart.module.css';
 
 import CartItem from './CartItem';
 
-const Cart = () => {
+const Cart = (props) => {
+
+
     return (
         <React.Fragment>
-            <CartItem />
+            <CartItem 
+                    // key={item.id} 
+                    // name={item.name}
+                    // price={item.price}
+                    // quantity={item.quantity}
+                />
             <div className={classes.total}>
                 <span>Total Amount</span>
-                <span></span>
+                <span>
+                0
+                </span>
             </div>
             <div className={classes.actions}>
                 <button className={classes['button--alt']}>
