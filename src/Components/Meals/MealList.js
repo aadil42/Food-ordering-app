@@ -33,7 +33,7 @@ const DUMMY_MEALS = [
     },
   ];
 
-const MealList = () => {
+const MealList = (props) => {
     return (
       <section className={classes.meals}>
         <Card>
@@ -44,6 +44,8 @@ const MealList = () => {
                     name={single_meal.name}
                     description={single_meal.description}
                     price={single_meal.price}
+                    setCartItem={props.setCartItem}
+                    cartItem={props.cartItem}
                     />
               })}
           </ul>

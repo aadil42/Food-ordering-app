@@ -21,8 +21,10 @@ const MealListItem = (props) => {
             console.log('wrong input');
             return;
         }
-        console.log('sucess');
         setInput(0);
+        props.setCartItem((preItem) => {
+            return +preItem + +input; 
+        });
     }
 
     return (

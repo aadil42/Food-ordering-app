@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 // components
 import Header from './Components/Layout/Header';
@@ -7,13 +7,16 @@ import MealList from './Components/Meals/MealList';
 import Cart from './Components/Cart/Cart';
 
 function App() {
+
+  const [cartItem, setCartItem] = useState('0');
+
   return (
     <React.Fragment>
-      <Header />
+      <Header cartItem={cartItem} />
       <MealSummary  />
-      <MealList />
+      <MealList setCartItem={setCartItem} />
       {/* <Cart /> */}
-    </React.Fragment>
+    </React.Fragment> 
   );
 }
 
