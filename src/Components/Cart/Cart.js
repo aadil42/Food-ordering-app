@@ -4,12 +4,14 @@ import React from 'react';
 import classes from './Cart.module.css';
 
 import CartItem from './CartItem';
+import Card from '../UI/Card';
 
 const Cart = (props) => {
 
 
     return (
         <React.Fragment>
+            <Card>
             {props.DUMMY_MEALS.map((meal) => {
                 if(meal.quantity) {
                    return <CartItem 
@@ -21,9 +23,17 @@ const Cart = (props) => {
                 }
             })}
             <div className={classes.total}>
-                <span>Total Amount</span>
                 <span>
-                0
+                    Total
+                </span>
+                <span>
+                {props.DUMMY_MEALS.reduce((acc, curr)  =>  {
+                        if(curr.quantity) {
+                            return acc + (curr.price * curr.quantity);
+                        } else {
+                            return acc;
+                        }
+                    },0)}
                 </span>
             </div>
             <div className={classes.actions}>
@@ -32,6 +42,7 @@ const Cart = (props) => {
                 </button>
                 <button className={classes.button}>Order</button>
             </div>
+            </Card>
         </React.Fragment>
     );
 }
