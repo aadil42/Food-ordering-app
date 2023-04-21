@@ -13,24 +13,28 @@ function App() {
       name: 'Sushi',
       description: 'Finest fish and veggies',
       price: 22.99,
+      quantity: 0
     },
     {
       id: 'm2',
       name: 'Schnitzel',
       description: 'A german specialty!',
       price: 16.5,
+      quantity: 0
     },
     {
       id: 'm3',
       name: 'Barbecue Burger',
       description: 'American, raw, meaty',
       price: 12.99,
+      quantity: 0
     },
     {
       id: 'm4',
       name: 'Green Bowl',
       description: 'Healthy...and green...',
       price: 18.99,
+      quantity: 0
     },
   ];
 
@@ -44,7 +48,7 @@ function App() {
       <Header cartItem={cartItem} />
       <MealSummary  />
       <MealList DUMMY_MEALS={orderState} setOrderState={setOrderState} cartItem={cartItem} setCartItem={setCartItem} />
-      {/* <Cart /> */}
+      <Cart DUMMY_MEALS={orderState} />
     </React.Fragment> 
   );
 }

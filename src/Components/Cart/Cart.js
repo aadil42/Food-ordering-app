@@ -10,12 +10,16 @@ const Cart = (props) => {
 
     return (
         <React.Fragment>
-            <CartItem 
-                    // key={item.id} 
-                    // name={item.name}
-                    // price={item.price}
-                    // quantity={item.quantity}
+            {props.DUMMY_MEALS.map((meal) => {
+                if(meal.quantity) {
+                   return <CartItem 
+                    key={meal.id} 
+                    name={meal.name}
+                    price={meal.price}
+                    quantity={meal.quantity}
                 />
+                }
+            })}
             <div className={classes.total}>
                 <span>Total Amount</span>
                 <span>

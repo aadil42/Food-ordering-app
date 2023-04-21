@@ -11,19 +11,37 @@ const MealListItem = (props) => {
 
     const handleChange = (event) => {
         if(event.target.value > -1) {
-            setInput(event.target.value);
+            setInput(+event.target.value);
         }
     }  
      
     const handleSubmit = (event) => {
         event.preventDefault();
-        if(!+input) { // using + because the input value can be '0' which is a truthy value
+        if(!input) { 
             console.log('wrong input');
             return;
         }
-        setInput(0);
+
+        // setting cartItem count in header
         props.setCartItem((preItem) => {
-            return +preItem + +input; 
+            return +preItem + input; 
+        });
+
+        // updating the cart
+        props.setOrderState((preState) => {
+            console.log('this is running');
+            console.log(props.name);
+           return preState.map((foodItem) => {
+            if(foodItem.name === props.name) {
+                console.log(console.log(foodItem));
+                return {
+                    ...foodItem,
+                    quantity: foodItem.quantity + input
+                }
+            } else {
+                return foodItem;
+            }
+           });
         });
     }
 
