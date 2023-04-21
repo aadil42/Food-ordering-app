@@ -5,12 +5,13 @@ import classes from './Cart.module.css';
 
 import CartItem from './CartItem';
 import Card from '../UI/Card';
+import Model from '../UI/Model';
 
 const Cart = (props) => {
 
 
     return (
-        <React.Fragment>
+        <Model>
             <Card>
             {props.DUMMY_MEALS.map((meal) => {
                 if(meal.quantity) {
@@ -43,7 +44,7 @@ const Cart = (props) => {
                 <button className={classes.button}>Order</button>
             </div>
             </Card>
-        </React.Fragment>
+        </Model>
     );
 }
 
