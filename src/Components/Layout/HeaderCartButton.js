@@ -11,6 +11,7 @@ const HeaderCartButton = (props) => {
     const displayCart = () => {
         props.setShowCart(true);
     }
+
     return (
         <React.Fragment>
            <button onClick={displayCart} className={classes.button}>
@@ -18,7 +19,9 @@ const HeaderCartButton = (props) => {
                 <CartIcon />
             </span>
              <span>Your Cart</span> 
-             <span className={classes.badge}>{props.cartItem}</span> 
+             <span className={classes.badge}>
+                {props.DUMMY_MEALS.reduce((acc, mealItem) =>  acc+mealItem.quantity,0)}    
+            </span> 
            </button>
         </React.Fragment>
     );

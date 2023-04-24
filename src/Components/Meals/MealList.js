@@ -44,8 +44,8 @@ const MealList = (props) => {
                     name={single_meal.name}
                     description={single_meal.description}
                     price={single_meal.price}
-                    setCartItem={props.setCartItem}
-                    cartItem={props.cartItem}
+                    // setCartItem={props.setCartItem}
+                    // cartItem={props.cartItem}
                     setOrderState={props.setOrderState}
                     />
               })}

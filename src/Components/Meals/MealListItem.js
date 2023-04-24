@@ -23,9 +23,9 @@ const MealListItem = (props) => {
         }
 
         // setting cartItem count in header
-        props.setCartItem((preItem) => {
-            return +preItem + input; 
-        });
+        // props.setCartItem((preItem) => {
+        //     return +preItem + input; 
+        // });
 
         // updating the cart
         props.setOrderState((preState) => {

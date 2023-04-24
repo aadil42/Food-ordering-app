@@ -5,6 +5,42 @@ import React from 'react';
 import classes from './CartItem.module.css';
 
 const CartItem = (props) => {
+
+  const decreament = () => {
+    props.setOrderState((preState) => {
+      console.log('this is running');
+      console.log(props.name);
+     return preState.map((foodItem) => {
+      if(foodItem.name === props.name) {
+          console.log(console.log(foodItem));
+          return {
+              ...foodItem,
+              quantity: foodItem.quantity - 1
+          }
+      } else {
+          return foodItem;
+      }
+     });
+  });
+  }
+  const increament = () => {
+    props.setOrderState((preState) => {
+      console.log('this is running');
+      console.log(props.name);
+     return preState.map((foodItem) => {
+      if(foodItem.name === props.name) {
+          console.log(console.log(foodItem));
+          return {
+              ...foodItem,
+              quantity: foodItem.quantity + 1
+          }
+      } else {
+          return foodItem;
+      }
+     });
+  });
+  }
+
     return (
         <li className={classes['cart-item']}>
         <div>
@@ -15,8 +51,8 @@ const CartItem = (props) => {
           </div>
         </div>
         <div className={classes.actions}>
-          <button>−</button>
-          <button >+</button>
+          <button onClick={decreament}>−</button>
+          <button onClick={increament} >+</button>
         </div>
       </li>
     );

@@ -24,6 +24,7 @@ const Cart = (props) => {
                     name={meal.name}
                     price={meal.price}
                     quantity={meal.quantity}
+                    setOrderState={props.setOrderState}
                 />
                 } else {
                     return false;
@@ -40,7 +41,7 @@ const Cart = (props) => {
                         } else {
                             return acc;
                         }
-                    },0)}
+                    },0).toFixed(2)}
                 </span>
             </div>
             <div className={classes.actions}>
