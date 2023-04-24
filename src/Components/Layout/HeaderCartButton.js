@@ -7,9 +7,13 @@ import classes from './HeaderCartButton.module.css';
 import CartIcon from '../Cart/CartIcon';
 
 const HeaderCartButton = (props) => {
+
+    const displayCart = () => {
+        props.setShowCart(true);
+    }
     return (
         <React.Fragment>
-           <button className={classes.button}>
+           <button onClick={displayCart} className={classes.button}>
             <span className={classes.icon}>
                 <CartIcon />
             </span>

@@ -9,9 +9,13 @@ import Model from '../UI/Model';
 
 const Cart = (props) => {
 
+    const hideCart = () => {
+        console.log('firing');
+        props.setShowCart(false);
+    }
 
     return (
-        <Model>
+        <Model onClick={hideCart}>
             <Card>
             {props.DUMMY_MEALS.map((meal) => {
                 if(meal.quantity) {
@@ -21,6 +25,8 @@ const Cart = (props) => {
                     price={meal.price}
                     quantity={meal.quantity}
                 />
+                } else {
+                    return false;
                 }
             })}
             <div className={classes.total}>
@@ -38,7 +44,7 @@ const Cart = (props) => {
                 </span>
             </div>
             <div className={classes.actions}>
-                <button className={classes['button--alt']}>
+                <button onClick={hideCart} className={classes['button--alt']}>
                 Close
                 </button>
                 <button className={classes.button}>Order</button>

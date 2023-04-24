@@ -42,13 +42,13 @@ function App() {
   // globle state of cart items
   const [cartItem, setCartItem] = useState('0');
   const [orderState, setOrderState] = useState(DUMMY_MEALS);
-
+  const [showCart, setShowCart] = useState(false);
   return (
     <React.Fragment>
-      <Header cartItem={cartItem} />
+      <Header setShowCart={setShowCart} cartItem={cartItem} />
       <MealSummary  />
       <MealList DUMMY_MEALS={orderState} setOrderState={setOrderState} cartItem={cartItem} setCartItem={setCartItem} />
-      <Cart DUMMY_MEALS={orderState} />
+      {showCart && <Cart setShowCart={setShowCart} DUMMY_MEALS={orderState} />}
     </React.Fragment> 
   );
 }

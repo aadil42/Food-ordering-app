@@ -3,8 +3,9 @@ import ReactDom from 'react-dom';
 
 import classes from './Model.module.css';
 
-const Backdrop = () => {
-    return <div className={classes.backdrop} />;
+const Backdrop = (props) => {
+
+    return <div onClick={props.onClick} className={classes.backdrop} />;
 }
 
 const ModelOverlay = (props) => {
@@ -21,7 +22,7 @@ const portalElement = document.querySelector('#overlays');
 const Model = (props) => {
     return (
         <React.Fragment>
-           {ReactDom.createPortal(<Backdrop />, portalElement)}
+           {ReactDom.createPortal(<Backdrop onClick={props.onClick} />, portalElement)}
            {ReactDom.createPortal(
            <ModelOverlay>{props.children} </ModelOverlay>, portalElement)}
         </React.Fragment>
