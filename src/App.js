@@ -6,6 +6,10 @@ import MealSummary from './Components/Layout/MealSummary';
 import MealList from './Components/Meals/MealList';
 import Cart from './Components/Cart/Cart';
 
+
+// getting provider
+import MealProvider from './Store/MealProvider';
+
 function App() {
   const DUMMY_MEALS = [
     {
@@ -43,12 +47,12 @@ function App() {
   const [showCart, setShowCart] = useState(false);
 
   return (
-    <React.Fragment>
+    <MealProvider>
       <Header DUMMY_MEALS={orderState} setShowCart={setShowCart} />
       <MealSummary  />
       <MealList DUMMY_MEALS={orderState} setOrderState={setOrderState} />
       {showCart && <Cart setShowCart={setShowCart} setOrderState={setOrderState} DUMMY_MEALS={orderState} />}
-    </React.Fragment> 
+    </MealProvider> 
   );
 }
 

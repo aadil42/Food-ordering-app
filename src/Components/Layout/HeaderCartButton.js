@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 // getting styles
 import classes from './HeaderCartButton.module.css';
@@ -6,7 +6,12 @@ import classes from './HeaderCartButton.module.css';
 // getting assets
 import CartIcon from '../Cart/CartIcon';
 
+// get the context
+import MealContext from '../../Store/MealContext';
+
 const HeaderCartButton = (props) => {
+
+    const ctx = useContext(MealContext);
 
     const displayCart = () => {
         props.setShowCart(true);
@@ -20,7 +25,8 @@ const HeaderCartButton = (props) => {
             </span>
              <span>Your Cart</span> 
              <span className={classes.badge}>
-                {props.DUMMY_MEALS.reduce((acc, mealItem) =>  acc+mealItem.quantity,0)}    
+                    {ctx.DUMMY_MEALS.reduce((acc, mealItem) =>  acc+mealItem.quantity,0)}    
+                {/* {props.DUMMY_MEALS.reduce((acc, mealItem) =>  acc+mealItem.quantity,0)}     */}
             </span> 
            </button>
         </React.Fragment>
