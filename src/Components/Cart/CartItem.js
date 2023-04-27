@@ -1,44 +1,54 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 
 // get the css
 import classes from './CartItem.module.css';
 
+// get the context
+import MealContext from '../../Store/MealContext';
+
 const CartItem = (props) => {
 
-  const decreament = () => {
-    props.setOrderState((preState) => {
-      console.log('this is running');
-      console.log(props.name);
-     return preState.map((foodItem) => {
-      if(foodItem.name === props.name) {
-          console.log(console.log(foodItem));
-          return {
-              ...foodItem,
-              quantity: foodItem.quantity - 1
-          }
-      } else {
-          return foodItem;
-      }
-     });
-  });
+  const ctx = useContext(MealContext);
+  console.log(ctx, 'citem');
+  const decreament = () => {  
+    ctx.updateCart('DECREAMENT','', props.name);
+
+  //   props.setOrderState((preState) => {
+  //     console.log('this is running');
+  //     console.log(props.name);
+  //    return preState.map((foodItem) => {
+  //     if(foodItem.name === props.name) {
+  //         console.log(console.log(foodItem));
+  //         return {
+  //             ...foodItem,
+  //             quantity: foodItem.quantity - 1
+  //         }
+  //     } else {
+  //         return foodItem;
+  //     }
+  //    });
+  // });
   }
   const increament = () => {
-    props.setOrderState((preState) => {
-      console.log('this is running');
-      console.log(props.name);
-     return preState.map((foodItem) => {
-      if(foodItem.name === props.name) {
-          console.log(console.log(foodItem));
-          return {
-              ...foodItem,
-              quantity: foodItem.quantity + 1
-          }
-      } else {
-          return foodItem;
-      }
-     });
-  });
+
+    ctx.updateCart('INCREAMENT','', props.name);
+
+  //   props.setOrderState((preState) => {
+  //     console.log('this is running');
+  //     console.log(props.name);
+  //    return preState.map((foodItem) => {
+  //     if(foodItem.name === props.name) {
+  //         console.log(console.log(foodItem));
+  //         return {
+  //             ...foodItem,
+  //             quantity: foodItem.quantity + 1
+  //         }
+  //     } else {
+  //         return foodItem;
+  //     }
+  //    });
+  // });
   }
 
     return (

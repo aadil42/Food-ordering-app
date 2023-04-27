@@ -5,7 +5,8 @@ import React from 'react';
 const MealContext = React.createContext({
     DUMMY_MEALS: [],
     updateOrder: () => {},
-    showCart: () => {}
+    showCart: () => {},
+    isCart: false
 });
 
 export default MealContext;

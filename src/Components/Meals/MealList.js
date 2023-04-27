@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 // importing compoenents
 import MealListItem from './MealListItem';
@@ -6,6 +6,10 @@ import Card from '../UI/Card';
 
 // get the styls 
 import classes from './MealList.module.css';
+
+// get the context
+import MealContext from '../../Store/MealContext';
+
 // const DUMMY_MEALS = [
 //     {
 //       id: 'm1',
@@ -34,11 +38,14 @@ import classes from './MealList.module.css';
 //   ];
 
 const MealList = (props) => {
+
+    const ctx = useContext(MealContext);
+
     return (
       <section className={classes.meals}>
         <Card>
           <ul>
-            {props.DUMMY_MEALS.map((single_meal) => {
+            {ctx.DUMMY_MEALS.map((single_meal) => {
             return <MealListItem 
                     key={single_meal.id} 
                     name={single_meal.name}
@@ -46,7 +53,7 @@ const MealList = (props) => {
                     price={single_meal.price}
                     // setCartItem={props.setCartItem}
                     // cartItem={props.cartItem}
-                    setOrderState={props.setOrderState}
+                    // setOrderState={props.setOrderState}
                     />
               })}
           </ul>

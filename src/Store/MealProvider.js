@@ -2,11 +2,6 @@ import React, {useReducer} from "react";
 import MealContext from './MealContext';
 import MEAL from './MealData';
 
-const defaultState = {
-  DUMMY_MEALS: MEAL,
-  isCart: false
-}
-
 const dispatch = (preState, action) => {
   if(action.type === 'INCREAMENT') {
     return {
@@ -41,6 +36,7 @@ const dispatch = (preState, action) => {
        })
     }
   }
+
   if(action.type === 'INPUT') {
     return {
       ...preState,
@@ -59,16 +55,18 @@ const dispatch = (preState, action) => {
   }
 
   if(action.type === 'SHOW_CART') {
+    // console.log('inn');
+    // console.log(preState,'hh');
     return {
       ...preState,
-      showCart: true
+      isCart: true
     }
   }
 
   if(action.type === 'HIDE_CART') {
     return {
       ...preState,
-      showCart: false
+      isCart: false
     }
   }
 
@@ -77,9 +75,6 @@ const dispatch = (preState, action) => {
 }
 
 const MealProvider = (props) => {
-
-    const [Gstate, mealReducer] = useReducer(dispatch, defaultState);
-
     const updateCart = (type, val, item) => {
       mealReducer({type: type, val: val, item: item});
     }
@@ -87,17 +82,31 @@ const MealProvider = (props) => {
     const showCart = (type) => {
       mealReducer({type: type});
     }
-  
-    // this is different from MealContext check the casing of the two
-    const mealContext = {
-      DUMMY_MEALS: Gstate.DUMMY_MEALS,
-      isCart: Gstate.isCart,
+
+    const defaultState = {
+      DUMMY_MEALS: MEAL,
+      isCart: false,
       showCart: showCart,
       updateCart: updateCart
     }
+    
+    const [Gstate, mealReducer] = useReducer(dispatch, defaultState);
 
+  
+    // this is different from MealContext check the casing of the two
+    // const mealContext = {
+    //   DUMMY_MEALS: Gstate.DUMMY_MEALS,
+    //   isCart: Gstate.isCart,
+    //   showCart: showCart,
+    //   updateCart: updateCart
+    // }
+    // Gstate.showCart = showCart;
+    // Gstate.updateCart = updateCart;
+    // console.log(mealContext);
+
+    
     return (
-        <MealContext.Provider value={mealContext}>
+        <MealContext.Provider value={Gstate}>
             {props.children}
         </MealContext.Provider>
     );

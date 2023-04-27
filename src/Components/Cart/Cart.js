@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 // get the styles
 import classes from './Cart.module.css';
@@ -7,24 +7,29 @@ import CartItem from './CartItem';
 import Card from '../UI/Card';
 import Model from '../UI/Model';
 
+// get the context
+import MealContext from '../../Store/MealContext';
+
 const Cart = (props) => {
 
+    const ctx = useContext(MealContext);
     const hideCart = () => {
-        console.log('firing');
-        props.setShowCart(false);
+        // console.log('firing');
+        // props.setShowCart(false);
+        console.log('hiding');
+        ctx.showCart('HIDE_CART');
     }
-
     return (
         <Model onClick={hideCart}>
             <Card>
-            {props.DUMMY_MEALS.map((meal) => {
+            {ctx.DUMMY_MEALS.map((meal) => {
                 if(meal.quantity) {
                    return <CartItem 
                     key={meal.id} 
                     name={meal.name}
                     price={meal.price}
                     quantity={meal.quantity}
-                    setOrderState={props.setOrderState}
+                    // setOrderState={props.setOrderState}
                 />
                 } else {
                     return false;
@@ -35,7 +40,7 @@ const Cart = (props) => {
                     Total
                 </span>
                 <span>
-                {props.DUMMY_MEALS.reduce((acc, curr)  =>  {
+                {ctx.DUMMY_MEALS.reduce((acc, curr)  =>  {
                         if(curr.quantity) {
                             return acc + (curr.price * curr.quantity);
                         } else {

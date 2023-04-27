@@ -12,9 +12,10 @@ import MealContext from '../../Store/MealContext';
 const HeaderCartButton = (props) => {
 
     const ctx = useContext(MealContext);
-
+    
     const displayCart = () => {
-        props.setShowCart(true);
+        // props.setShowCart(true);
+        ctx.showCart('SHOW_CART');
     }
 
     return (
