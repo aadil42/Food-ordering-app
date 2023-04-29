@@ -14,10 +14,7 @@ const Cart = (props) => {
 
     const ctx = useContext(MealContext);
     const hideCart = () => {
-        // console.log('firing');
-        // props.setShowCart(false);
-        console.log('hiding');
-        ctx.showCart('HIDE_CART');
+        props.setShowCart(false);
     }
     return (
         <Model onClick={hideCart}>

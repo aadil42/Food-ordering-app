@@ -55,7 +55,7 @@ const dispatch = (preState, action) => {
   }
 
   if(action.type === 'SHOW_CART') {
-    // console.log('inn');
+    console.log('inn');
     // console.log(preState,'hh');
     return {
       ...preState,
@@ -85,7 +85,6 @@ const MealProvider = (props) => {
 
     const defaultState = {
       DUMMY_MEALS: MEAL,
-      isCart: false,
       showCart: showCart,
       updateCart: updateCart
     }

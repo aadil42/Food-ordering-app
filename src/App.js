@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useState, useContext} from 'react';
 
 // components
 import Header from './Components/Layout/Header';
@@ -19,15 +19,15 @@ function App() {
 
   // globle state of cart items
   // const [orderState, setOrderState] = useState(DUMMY_MEALS);
-  // const [showCart, setShowCart] = useState(false);
+  const [showCart, setShowCart] = useState(false);
   console.log(ctx,'from app');
   
   return (
     <MealProvider>
-      <Header/>
+      <Header setShowCart={setShowCart}/>
       <MealSummary  />
       <MealList />
-      {ctx.isCart && <Cart />}
+      {showCart && <Cart setShowCart={setShowCart}/>}
     </MealProvider> 
   );
 }

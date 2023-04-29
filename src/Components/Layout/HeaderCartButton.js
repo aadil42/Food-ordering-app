@@ -14,8 +14,7 @@ const HeaderCartButton = (props) => {
     const ctx = useContext(MealContext);
     
     const displayCart = () => {
-        // props.setShowCart(true);
-        ctx.showCart('SHOW_CART');
+        props.setShowCart(true);
     }
 
     return (
