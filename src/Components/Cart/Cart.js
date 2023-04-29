@@ -19,7 +19,7 @@ const Cart = (props) => {
     return (
         <Model onClick={hideCart}>
             <Card>
-            {ctx.DUMMY_MEALS.map((meal) => {
+            {ctx.DUMMY_MEALS.map((meal) => { 
                 if(meal.quantity) {
                    return <CartItem 
                     key={meal.id} 
