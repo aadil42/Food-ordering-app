@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 
 // components
 import Header from './Components/Layout/Header';
@@ -10,17 +10,11 @@ import Cart from './Components/Cart/Cart';
 // getting provider
 import MealProvider from './Store/MealProvider';
 
-// get the context
-import MealContext from './Store/MealContext';
 
 function App() {
-
-  const ctx = useContext(MealContext);
-
   // globle state of cart items
   // const [orderState, setOrderState] = useState(DUMMY_MEALS);
   const [showCart, setShowCart] = useState(false);
-  console.log(ctx,'from app');
   
   return (
     <MealProvider>
