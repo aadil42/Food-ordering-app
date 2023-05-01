@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 
 // getting styles
 import classes from './HeaderCartButton.module.css';
@@ -17,15 +17,30 @@ const HeaderCartButton = (props) => {
         props.setShowCart(true);
     }
 
+
+    const [animation, setAnimation] = useState(false);
+    const totalMealCount = ctx.DUMMY_MEALS.reduce((acc, mealItem) =>  acc+mealItem.quantity,0);
+
+    useEffect(() => {
+        console.log('this works 25');
+        setAnimation(true);
+
+        setTimeout(() => {
+            setAnimation(false);
+        }, 300);
+    }, [totalMealCount]);
+
+    // const buttonClasses = `classes.button`
+    console.log(classes.bump,'--',classes.button);
     return (
         <React.Fragment>
-           <button onClick={displayCart} className={classes.button}>
+           <button onClick={displayCart} className={classes.button + ' ' + (animation ? classes.bump : '')}>
             <span className={classes.icon}>
                 <CartIcon />
             </span>
              <span>Your Cart</span> 
              <span className={classes.badge}>
-                    {ctx.DUMMY_MEALS.reduce((acc, mealItem) =>  acc+mealItem.quantity,0)}    
+                    {totalMealCount}    
                 {/* {props.DUMMY_MEALS.reduce((acc, mealItem) =>  acc+mealItem.quantity,0)}     */}
             </span> 
            </button>
