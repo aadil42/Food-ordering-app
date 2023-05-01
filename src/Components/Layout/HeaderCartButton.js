@@ -22,12 +22,17 @@ const HeaderCartButton = (props) => {
     const totalMealCount = ctx.DUMMY_MEALS.reduce((acc, mealItem) =>  acc+mealItem.quantity,0);
 
     useEffect(() => {
+        if(totalMealCount === 0) return;
         console.log('this works 25');
         setAnimation(true);
 
-        setTimeout(() => {
+        const timerId = setTimeout(() => {
             setAnimation(false);
         }, 300);
+
+        return () => {
+            clearTimeout(timerId);
+        }
     }, [totalMealCount]);
 
     // const buttonClasses = `classes.button`
